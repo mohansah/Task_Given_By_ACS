@@ -1,5 +1,5 @@
 # Problem
-1. Make a Python3 Script to extract all the details of the product searched on Amazon [using CLA].
+1. Make a Python3 Script to extract all the details of the product searched on Amazon.
 2. Also to run socket programming if the user gives with a valid Email-Id and password [Client to server]
 # Solution
 Explanation for task 1.1
