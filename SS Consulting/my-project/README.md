@@ -1,7 +1,7 @@
 # Vendor Details Collector System
 1. Folder my-project contains one folder (public) and one javascript file (app.js)
 2. Folder public contains one html file (index.html) and one css file (style.css), index.html is for sending the data from frontend to backend and style.css is used for making frontend interactive.
-3. app.py is for the backend where I am receiving the data from index.html and processing it for storing the data in mongodb database.
+3. app.js is for the backend where I am receiving the data from index.html and processing it for storing the data in mongodb database.
 
 ## Requirements:
 1. Download and Install Node.js, link: https://nodejs.org/en/download/
