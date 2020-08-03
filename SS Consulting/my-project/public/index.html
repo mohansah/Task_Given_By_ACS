@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="index.js"></script>
+<body>
+
+<form id="Form" action="/samp" method="post">
+  <h1>Vendor Details Collector System</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+    <h3>Vendor 1</h3>
+    <p><input placeholder="Enter Vendor ID..." value="" name="vid1" ></p>
+    <p><input placeholder="Enter Full Name..." value="" name="vname1"></p>
+    <p><input placeholder="Enter Phone Number..." value="" name="vphone1"></p>
+    <p><input placeholder="Enter Email..." value="" name="vemail1"></p>
+    <p><input placeholder="Enter Address..." value="" name="vaddress1"></p>
+
+    <h3>Vendor 2</h3>
+    <p><input placeholder="Enter Vendor ID..." value="" name="vid2"></p>
+    <p><input placeholder="Enter Full Name..." value="" name="vname2"></p>
+    <p><input placeholder="Enter Phone Number..." value="" name="vphone2"></p>
+    <p><input placeholder="Enter Email..." value="" name="vemail2"></p>
+    <p><input placeholder="Enter Address..." value="" name="vaddress2"></p>
+
+    <h3>Vendor 3</h3>
+    <p><input placeholder="Enter Vendor ID..." value="" name="vid3"></p>
+    <p><input placeholder="Enter Full Name..." value="" name="vname3"></p>
+    <p><input placeholder="Enter Phone Number..." value="" name="vphone3"></p>
+    <p><input placeholder="Enter Email..." value="" name="vemail3"></p>
+    <p><input placeholder="Enter Address..." value="" name="vaddress3"></p>
+
+    <h3>Vendor 4</h3>
+    <p><input placeholder="Enter Vendor ID..." value="" name="vid4"></p>
+    <p><input placeholder="Enter Full Name..." value="" name="vname4"></p>
+    <p><input placeholder="Enter Phone Number..." value="" name="vphone4"></p>
+    <p><input placeholder="Enter Email..." value="" name="vemail4"></p>
+    <p><input placeholder="Enter Address..." value="" name="vaddress4"></p>
+
+  </div>
+  <div class="tab">
+    <h3>Item 1</h3>
+    <p><input placeholder="Enter Code..." value="" name="iid1"></p>
+    <p><input placeholder="Enter Name..." value="" name="iname1"></p>
+    <p><input placeholder="Enter Description..." value="" name="idescription1"></p>
+    <p><input placeholder="Enter Price..." value="" name="iprice1" required></p>
+
+    <h3>Item 2</h3>
+    <p><input placeholder="Enter Code..." value="" name="iid2"></p>
+    <p><input placeholder="Enter Name..." value="" name="iname2"></p>
+    <p><input placeholder="Enter Description..." value="" name="idescription2"></p>
+    <p><input placeholder="Enter Price..." value="" name="iprice2"></p>
+
+    <h3>Item 3</h3>
+    <p><input placeholder="Enter Code..." value="" name="iid3"></p>
+    <p><input placeholder="Enter Name..." value="" name="iname3"></p>
+    <p><input placeholder="Enter Description..." value="" name="idescription3"></p>
+    <p><input placeholder="Enter Price..." value="" name="iprice3"></p>
+
+    <h3>Item 4</h3>
+    <p><input placeholder="Enter Code..." value="" name="iid4"></p>
+    <p><input placeholder="Enter Name..." value="" name="iname4"></p>
+    <p><input placeholder="Enter Description..." value="" name="idescription4"></p>
+    <p><input placeholder="Enter Price..." value="" name="iprice4"></p>
+  </div>
+
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+</form>
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("Form").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+ 
+
+</script>
+
+</body>
+</html>
