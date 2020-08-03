@@ -6,7 +6,7 @@
 ## Requirements:
 1. Download and Install Node.js, link: https://nodejs.org/en/download/
 2. Download and Install MongoDB database, link: https://www.mongodb.com/try/download/community
-3. One edition, I used Visual Studio Code, link: https://code.visualstudio.com/download
+3. One editor, I used Visual Studio Code, link: https://code.visualstudio.com/download
 4. express module
 5. body-parser module
 6. mongoose module
